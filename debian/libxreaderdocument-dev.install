@@ -1,0 +1,4 @@
+usr/include/xreader/1.5/libdocument/
+usr/include/xreader/1.5/xreader-document.h
+usr/lib/*/libxreaderdocument.so
+usr/lib/*/pkgconfig/xreader-document-1.5.pc

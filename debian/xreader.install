@@ -1,0 +1,8 @@
+usr/bin/xreader
+usr/bin/xreader-previewer
+usr/bin/xreader-thumbnailer
+usr/libexec/xreaderd
+usr/share/applications/xreader.desktop
+usr/share/dbus-1/services/org.x.reader.Daemon.service
+usr/share/glib-2.0/schemas/org.x.reader.gschema.xml
+usr/share/man/man1/xreader*.1

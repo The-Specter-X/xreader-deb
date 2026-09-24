@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+xreader --version | grep -F '4.6.9'
+test -r /usr/share/applications/xreader.desktop
+test -r /usr/share/glib-2.0/schemas/org.x.reader.gschema.xml
+test -r /usr/share/thumbnailers/xreader.thumbnailer
+multiarch=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
+test -r "/usr/lib/$multiarch/xreader/3/backends/pdfdocument.xreader-backend"
+python3 - <<'PY'
+import gi
+gi.require_version('XreaderDocument', '1.5')
+gi.require_version('XreaderView', '1.5')
+from gi.repository import XreaderDocument, XreaderView
+assert XreaderDocument is not None and XreaderView is not None
+PY

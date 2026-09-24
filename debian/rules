@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-Dcomics=true \
+		-Ddjvu=true \
+		-Ddvi=true \
+		-Dhelp_files=true \
+		-Dintrospection=true
+
+# Upstream's Python tests automate a graphical desktop using dogtail.
+override_dh_auto_test:
+	:

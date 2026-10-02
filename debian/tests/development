@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+test_directory=${AUTOPKGTEST_TMP:-$(mktemp -d)}
+debian/tests/make-document "$test_directory/sample.pdf"
+cc -Werror=implicit-function-declaration debian/tests/library.c \
+    -o "$test_directory/library-test" $(pkg-config --cflags --libs xreader-view-1.5)
+xvfb-run -a "$test_directory/library-test" "$test_directory/sample.pdf"

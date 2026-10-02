@@ -2,3 +2,4 @@ usr/include/xreader/1.5/libdocument/
 usr/include/xreader/1.5/xreader-document.h
 usr/lib/*/libxreaderdocument.so
 usr/lib/*/pkgconfig/xreader-document-1.5.pc
+usr/share/gir-1.0/XreaderDocument-1.5.gir

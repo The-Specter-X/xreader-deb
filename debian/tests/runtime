@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+
+test_directory=${AUTOPKGTEST_TMP:-$(mktemp -d)}
+debian/tests/make-document "$test_directory/sample.pdf"
+version=$(dpkg-query -W -f='${Version}' xreader)
+version=${version#*:}
+xreader --version | grep -F -- "${version%-*}"
+test -r /usr/share/applications/xreader.desktop
+test -r /usr/share/glib-2.0/schemas/org.x.reader.gschema.xml
+test -r /usr/share/thumbnailers/xreader.thumbnailer
+xreader-thumbnailer -s 128 "$test_directory/sample.pdf" "$test_directory/thumbnail.png"
+xvfb-run -a python3 - "$test_directory" <<'PY'
+import pathlib
+import sys
+import gi
+gi.require_version('GdkPixbuf', '2.0')
+gi.require_version('Gtk', '3.0')
+gi.require_version('XreaderDocument', '1.5')
+gi.require_version('XreaderView', '1.5')
+from gi.repository import GdkPixbuf, Gtk, XreaderDocument, XreaderView
+
+directory = pathlib.Path(sys.argv[1])
+thumbnail = GdkPixbuf.Pixbuf.new_from_file(str(directory / 'thumbnail.png'))
+assert thumbnail.get_width() == 128 and thumbnail.get_height() == 128
+assert len(set(thumbnail.get_pixels())) > 1, 'thumbnail has no rendered content'
+Gtk.init([])
+assert XreaderDocument.init()
+document = XreaderDocument.Document.factory_get_document((directory / 'sample.pdf').as_uri())
+assert document.get_n_pages() == 1
+view = XreaderView.View.new()
+assert isinstance(view, Gtk.Widget)
+XreaderDocument.shutdown()
+PY

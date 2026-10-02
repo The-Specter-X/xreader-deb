@@ -2,10 +2,11 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: xreader
 Upstream-Contact: Linux Mint <root@linuxmint.com>
 Source: https://github.com/linuxmint/xreader
-Files-Excluded: debian
 
 Files: *
 Copyright: 2004-2026, Linux Mint, Evince and Atril contributors
+           2012 Carlos Garcia Campos  <carlosgc@gnome.org>
+           2018 Germán Poo-Caamaño <gpoo@gnome.org>
 License: GPL-2+
 Comment:
  Individual upstream files with distinct copyright or licensing are
@@ -70,7 +71,6 @@ Files: backend/dvi/cairo-device.c
        previewer/ev-previewer.c
        shell/ev-annotation-properties-dialog.c
        shell/ev-annotation-properties-dialog.h
-       shell/ev-convert-metadata.c
        shell/ev-file-monitor.c
        shell/ev-file-monitor.h
        shell/ev-keyring.c
@@ -110,8 +110,8 @@ Files: backend/pdf/ev-poppler.h
        libview/ev-view-private.h
        libview/ev-view.c
        libview/ev-view.h
-       properties/ev-properties-view.c
-       properties/ev-properties-view.h
+       shell/ev-properties-view.c
+       shell/ev-properties-view.h
        shell/ev-password-view.h
        shell/ev-properties-dialog.c
        shell/ev-properties-dialog.h
@@ -161,27 +161,17 @@ Files: backend/dvi/mdvi-lib/bitmap.c
 Copyright: 2000, Matias Atria
 License: GPL-2+
 
-Files: cut-n-paste/toolbar-editor/egg-editable-toolbar.c
-       cut-n-paste/toolbar-editor/egg-editable-toolbar.h
-       cut-n-paste/toolbar-editor/egg-toolbars-model.c
-       cut-n-paste/zoom-control/ephy-zoom-action.c
+Files: cut-n-paste/zoom-control/ephy-zoom-action.c
        cut-n-paste/zoom-control/ephy-zoom-action.h
        libmisc/ev-page-action-widget.c
        libmisc/ev-page-action-widget.h
        libmisc/ev-page-action.c
        libmisc/ev-page-action.h
-       shell/ev-navigation-action-widget.c
-       shell/ev-navigation-action-widget.h
-       shell/ev-navigation-action.c
-       shell/ev-navigation-action.h
 Copyright: 2002-2004, Marco Pesenti Gritti
            2003-2005, Christian Persch
 License: GPL-2+
 
-Files: cut-n-paste/toolbar-editor/egg-toolbar-editor.c
-       cut-n-paste/toolbar-editor/egg-toolbar-editor.h
-       cut-n-paste/toolbar-editor/egg-toolbars-model.h
-       libdocument/ev-async-renderer.c
+Files: libdocument/ev-async-renderer.c
        libdocument/ev-async-renderer.h
        libdocument/ev-document-info.h
        libdocument/ev-document-misc.h
@@ -248,9 +238,7 @@ Files: cut-n-paste/smclient/eggdesktopfile.h
 Copyright: 2007, Novell, Inc.
 License: LGPL-2+
 
-Files: xreader-document.h
-       xreader-view.h
-       libdocument/ev-init.c
+Files: libdocument/ev-init.c
        libdocument/ev-init.h
 Copyright: 2009, Christian Persch
 License: LGPL-2.1+
@@ -327,11 +315,6 @@ Copyright: 2003, Marco Pesenti Gritti
            2005, Paolo Maggi
 License: GPL-2+
 
-Files: backend/dvi/texmfcnf.c
-       backend/dvi/texmfcnf.h
-Copyright: 2010, Hib Eris <hib@hiberis.nl>
-License: GPL-2+
-
 Files: backend/djvu/djvu-links.c
        backend/djvu/djvu-links.h
 Copyright: 2006, Pauli Virtanen <pav@iki.fi>
@@ -341,12 +324,6 @@ Files: libdocument/ev-document-text.c
        libdocument/ev-document-text.h
 Copyright: 2010, Yaco Sistemas, Daniel Garcia <danigm@yaco.es>
 License: GPL-2+
-
-Files: cut-n-paste/gimpcellrenderertoggle/gimpcellrenderertoggle.c
-       cut-n-paste/gimpcellrenderertoggle/gimpcellrenderertoggle.h
-Copyright: 1995-1997, Peter Mattis and Spencer Kimball
-           2003-2004, Sven Neumann <sven@gimp.org>
-License: LGPL-2+
 
 Files: shell/eggfindbar.c
        shell/eggfindbar.h
@@ -369,12 +346,6 @@ License: GPL-2+
 Files: shell/ev-sidebar-thumbnails.c
 Copyright: 2004, Red Hat, Inc.
            2004-2005, Anders Carlsson <andersca@gnome.org>
-License: GPL-2+
-
-Files: properties/ev-properties-main.c
-Copyright: 2000-2001, Eazel, Inc.
-           2003, Andrew Sobala <aes@gnome.org>
-           2005, Bastien Nocera <hadess@hadess.net>
 License: GPL-2+
 
 Files: shell/ev-window.c
@@ -455,16 +426,6 @@ Files: backend/tiff/tiff2ps.h
 Copyright: 2005, rpath, Inc.
 License: GPL-2+
 
-Files: cut-n-paste/totem-screensaver/totem-scrsaver.h
-Copyright: 2004, Bastien Nocera <hadess@hadess.net>
-License: LGPL-2+
-
-Files: cut-n-paste/totem-screensaver/totem-scrsaver.c
-Copyright: 2004-2006, Bastien Nocera <hadess@hadess.net>
-           2010, Carlos Garcia Campos
-           2010, Christian Persch
-License: LGPL-2+
-
 Files: cut-n-paste/smclient/eggsmclient-xsmp.c
 Copyright: 1998, Carsten Schaar, and twm
            1998, The Open Group
@@ -480,14 +441,6 @@ License: LGPL-2+
 Files: backend/ps/ev-spectre.h
 Copyright: 1998-2005, The Free Software Foundation, Inc.
 License: LGPL-2+
-
-Files: backend/tiff/tiff2ps.c
-Copyright: 1988-1997, Sam Leffler
-           1991-1997, Silicon Graphics, Inc
-           2005, rpath, Inc
-License: GPL-2+
-Comment:
- Using license from COPYING file.
 
 Files: po/*.po
        po/gnome-copyrights.txt
@@ -560,139 +513,94 @@ Copyright: Jonathan Blandford <jrb@redhat.com>
            朱涛 <bill_zt@sina.com>
 License: GFDL-1.1+
 
-Files: .tx/config
-       backend/comics/Makefile.am
-       backend/comics/*.in
-       backend/djvu/Makefile.am
+Files: backend/comics/*.in
        backend/djvu/*.in
-       backend/dvi/mdvi-lib/Makefile.am
        backend/dvi/mdvi-lib/dviopcodes.h
        backend/dvi/mdvi-lib/hash.h
        backend/dvi/mdvi-lib/paper.h
-       backend/dvi/Makefile.am
        backend/dvi/fonts.c
        backend/dvi/fonts.h
        backend/dvi/*.in
-       backend/pdf/Makefile.am
        backend/pdf/*.in
-       backend/pixbuf/Makefile.am
        backend/pixbuf/*.in
-       backend/ps/Makefile.am
        backend/ps/*.in
-       backend/tiff/Makefile.am
        backend/tiff/*.in
-       backend/xps/Makefile.am
        backend/xps/*.in
-       backend/Makefile.am
        backend/backend.symbols
-       cut-n-paste/gimpcellrenderertoggle/Makefile.am
-       cut-n-paste/gimpcellrenderertoggle/*.list
-       cut-n-paste/smclient/Makefile.am
-       cut-n-paste/synctex/Makefile.am
-       cut-n-paste/toolbar-editor/Makefile.am
-       cut-n-paste/toolbar-editor/*.list
-       cut-n-paste/totem-screensaver/Makefile.am
-       cut-n-paste/totem-screensaver/README
-       cut-n-paste/zoom-control/Makefile.am
-       cut-n-paste/Makefile.am
-       data/icons/16x16/actions/Makefile.am
        data/icons/16x16/actions/*.png
        data/icons/16x16/actions/*.xcf
        data/icons/16x16/actions/*.svg
-       data/icons/16x16/apps/Makefile.am
        data/icons/16x16/apps/*.png
-       data/icons/16x16/mimetypes/Makefile.am
        data/icons/16x16/mimetypes/*.png
-       data/icons/16x16/Makefile.am
-       data/icons/22x22/actions/Makefile.am
        data/icons/22x22/actions/*.png
        data/icons/22x22/actions/*.xcf
        data/icons/22x22/actions/*.svg
-       data/icons/22x22/apps/Makefile.am
        data/icons/22x22/apps/*.png
-       data/icons/22x22/mimetypes/Makefile.am
        data/icons/22x22/mimetypes/*.png
-       data/icons/22x22/Makefile.am
-       data/icons/24x24/actions/Makefile.am
        data/icons/24x24/actions/*.png
-       data/icons/24x24/apps/Makefile.am
        data/icons/24x24/apps/*.png
-       data/icons/24x24/mimetypes/Makefile.am
        data/icons/24x24/mimetypes/*.png
-       data/icons/24x24/Makefile.am
-       data/icons/32x32/actions/Makefile.am
        data/icons/32x32/actions/*.png
-       data/icons/32x32/mimetypes/Makefile.am
        data/icons/32x32/mimetypes/*.png
-       data/icons/32x32/Makefile.am
-       data/icons/48x48/actions/Makefile.am
        data/icons/48x48/actions/*.png
-       data/icons/48x48/apps/Makefile.am
        data/icons/48x48/apps/*.png
-       data/icons/48x48/Makefile.am
-       data/icons/scalable/actions/Makefile.am
        data/icons/scalable/actions/*.svg
-       data/icons/scalable/apps/Makefile.am
        data/icons/scalable/apps/*.svg
-       data/icons/scalable/mimetypes/Makefile.am
        data/icons/scalable/mimetypes/*.svg
-       data/icons/scalable/Makefile.am
-       data/icons/Makefile.am
-       data/Makefile.am
        data/*.xml
        data/xreader.1
-       data/xreader.convert
-       data/xreader.ico
        data/*.png
        data/*.in
-       libdocument/Makefile.am
        libdocument/ev-version.h.in
        libdocument/*.template
-       libmisc/Makefile.am
-       libview/Makefile.am
        libview/ev-pixbuf-cache.c
        libview/*.template
        libview/*.list
        po/ChangeLog
        po/LINGUAS
        po/POTFILES.*
-       previewer/Makefile.am
        previewer/xreader-previewer.1
-       properties/Makefile.am
-       shell/Makefile.am
-       shell/xreader-icon.rc
        shell/ev-marshal.list
-       test/Makefile.am
        test/*.py
        test/test-encrypt.pdf
        test/test-links.pdf
        test/test-mime.bin
        test/test-page-labels.pdf
-       thumbnailer/Makefile.am
        thumbnailer/xreader-thumbnailer.1
        thumbnailer/xreader.thumbnailer.in
        AUTHORS
        COPYING
        ChangeLog
-       Makefile.am
        NEWS
-       NEWS.gnome
-       README
-       TODO
-       autogen.sh
        xreader-document.*
        xreader-view.*
-       configure.ac
 Copyright: *No copyright*
 License: GPL-2+
 Comment:
  Using license from COPYING file.
 
 Files: debian/*
-Copyright: 2026, James Arden <theoverseer@tuta.com>
+Copyright: 2011-2014, Stefano Karapetsas <stefano@karapetsas.com>
+           2014, Mike Gabriel <sunweaver@debian.org>
+           2026, James Arden <theoverseer@tuta.com>
 License: GPL-2+
 
-License: GPL-2+
+Files: xreader-document.h
+       xreader-view.h
+       libdocument/ev-macros.h
+Copyright: 2009, 2012 Christian Persch
+License: LGPL-2.1+
+
+Files: previewer/previewer.gresource.xml
+       shell/xreader.gresource.xml
+Copyright: 2012 Christian Persch
+License: GPL-3+
+
+Files: backend/tiff/tiff2ps.c
+Copyright: 1988-1997 Sam Leffler
+           1991-1997 Silicon Graphics, Inc.
+           2005 rpath, Inc.
+License: libtiff
 
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
@@ -703,9 +611,9 @@ License: GPL-2+
  This package is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- GNU Genaral Public License for more details.
+ GNU General Public License for more details.
  .
- You should have received a copy og the GNU General Public License
+ You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>
  .
  On Debian systems, the complete text of the GNU General
@@ -791,3 +699,33 @@ License: GFDL-1.1+
  .
  On Debian systems, the complete text of the GNU Free Documentation License
  version 1.2 can be found in "/usr/share/common-licenses/GFDL-1.2".
+
+
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ .
+ On Debian systems, the complete text is in
+ /usr/share/common-licenses/GPL-3.
+
+License: libtiff
+ Permission to use, copy, modify, distribute, and sell this software and
+ its documentation for any purpose is hereby granted without fee, provided
+ that (i) the above copyright notices and this permission notice appear in
+ all copies of the software and related documentation, and (ii) the names of
+ Sam Leffler and Silicon Graphics may not be used in any advertising or
+ publicity relating to the software without the specific, prior written
+ permission of Sam Leffler and Silicon Graphics.
+ .
+ THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ IN NO EVENT SHALL SAM LEFFLER OR SILICON GRAPHICS BE LIABLE FOR
+ ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
+ LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.

@@ -2,3 +2,4 @@ usr/include/xreader/1.5/libview/
 usr/include/xreader/1.5/xreader-view.h
 usr/lib/*/libxreaderview.so
 usr/lib/*/pkgconfig/xreader-view-1.5.pc
+usr/share/gir-1.0/XreaderView-1.5.gir

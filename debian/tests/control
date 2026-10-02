@@ -1,2 +1,7 @@
-Tests: smoke
-Depends: @, dpkg-dev, python3-gi
+Tests: runtime
+Depends: xreader, gir1.2-xreader-1.5, python3-gi, xvfb, xauth
+Restrictions: allow-stderr
+
+Tests: development
+Depends: libxreaderdocument-dev, libxreaderview-dev, build-essential, pkgconf, python3, xvfb, xauth
+Restrictions: allow-stderr

@@ -1,5 +1,9 @@
-xreader (4.6.9+ds-1) UNRELEASED; urgency=medium
+xreader (4.6.9-1) UNRELEASED; urgency=medium
 
   * Initial Debian packaging.
+  * Use the original upstream source archive and document packaging overlay.
+  * Refresh dependencies, installed-package tests and copyright metadata.
 
- -- James Arden <theoverseer@tuta.com>  Thu, 24 Sep 2026 11:00:00 +0000
+  * Ship GIR XML with development files and generate namespace Provides.
+
+ -- James Arden <theoverseer@tuta.com>  Fri, 02 Oct 2026 10:00:00 +0000
